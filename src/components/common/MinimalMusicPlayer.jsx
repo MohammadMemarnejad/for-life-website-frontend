@@ -166,8 +166,8 @@ export default function MinimalMusicPlayer() {
                     ? 'bg-[#829643] hover:bg-[#728537] shadow-olive-900/20' 
                     : 'bg-[#94A751] hover:bg-[#869941] shadow-olive-700/20'
                 }`}
-                title={isPlaying ? 'توقف پخش' : 'پخش نوای سنتور'}
-                aria-label={isPlaying ? 'توقف پخش' : 'پخش نوای سنتور'}
+                title={isPlaying ? 'توقف پخش' : 'پخش'}
+                aria-label={isPlaying ? 'توقف پخش' : 'پخش'}
               >
                 {isPlaying ? (
                   <Pause size={18} />
@@ -261,8 +261,8 @@ export default function MinimalMusicPlayer() {
                 ? 'bg-[#829643] hover:bg-[#728537]'
                 : 'bg-[#94A751] hover:bg-[#869941]'
             }`}
-            title={isPlaying ? 'توقف پخش' : 'پخش نوای سنتور'}
-            aria-label={isPlaying ? 'توقف پخش' : 'پخش نوای سنتور'}
+            title={isPlaying ? 'توقف پخش' : 'پخش موسیقی'}
+            aria-label={isPlaying ? 'توقف پخش' : 'پخش موسیقی'}
           >
             {isPlaying ? (
               <Pause size={14} />
@@ -282,7 +282,7 @@ export default function MinimalMusicPlayer() {
           {/* Track Title and Mood Tag */}
           <div className="flex items-center gap-2">
             <span className="text-xs sm:text-[13px] font-medium text-navy-800 whitespace-nowrap">
-              {isPlaying ? 'نوای سنتور در حال پخش' : 'نوای دل‌نشین سنتور'}
+              {isPlaying ? 'نوای موسیقی در حال پخش' : 'نوای دل‌نشین موسیقی'}
             </span>
           </div>
 
