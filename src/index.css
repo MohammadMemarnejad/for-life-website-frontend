@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #FAF7F0;
+    color: #1F293B;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D2DFC1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ADC492;
+}
+
+/* Smooth fade transitions */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sound Wave Equalizer Keyframes */
+@keyframes soundwave {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.animate-soundwave-1 {
+  animation: soundwave 1.1s ease-in-out infinite alternate;
+}
+
+.animate-soundwave-2 {
+  animation: soundwave 0.8s ease-in-out 0.2s infinite alternate;
+}
+
+.animate-soundwave-3 {
+  animation: soundwave 1.3s ease-in-out 0.4s infinite alternate;
+}
+
+.animate-soundwave-4 {
+  animation: soundwave 0.9s ease-in-out 0.1s infinite alternate;
+}
