@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
+import MinimalMusicPlayer from './components/common/MinimalMusicPlayer';
+import { AudioProvider } from './context/AudioContext';
 import Hero from './components/home/Hero';
 import StorySection from './components/home/StorySection';
 import MeetupSection from './components/home/MeetupSection';
@@ -25,9 +27,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF7F0] text-navy-800">
-      {/* Top Navbar */}
-      <Navbar currentView={currentView} setCurrentView={handleNavigate} />
+    <AudioProvider>
+      <div className="flex flex-col min-h-screen bg-[#FAF7F0] text-navy-800 relative">
+        {/* Top Navbar */}
+        <Navbar currentView={currentView} setCurrentView={handleNavigate} />
 
       {/* Main Content Area */}
       <main className="flex-grow">
@@ -78,8 +81,13 @@ export default function App() {
       {/* Footer matching footer.jpg */}
       <Footer />
 
+      {/* Minimal Floating Music Player */}
+      <MinimalMusicPlayer />
+
       {/* Minimal Auth Modal matching form aesthetic */}
       <AuthModal />
     </div>
+    </AudioProvider>
   );
 }
+

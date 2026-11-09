@@ -71,15 +71,15 @@ export default function Navbar({ currentView, setCurrentView }) {
             <button
               onClick={handleToggleMusic}
               className="flex items-center gap-2 text-sm text-[#4A5568] hover:text-navy-900 transition-colors py-1.5 px-3 rounded-full hover:bg-black/5 group"
-              title={isPlayingMusic ? "توقف پخش نوای آرامش‌بخش" : "پخش نوای آرامش‌بخش سنتی"}
+              title={isPlaying ? "توقف پخش نوای آرامش‌بخش" : "پخش نوای آرامش‌بخش سنتی"}
             >
               <span className="text-sm font-medium">
-                {isPlayingMusic ? 'توقف موزیک' : 'پخش موزیک بی‌کلام'}
+                {isPlaying ? 'توقف موزیک' : 'پخش موزیک بی‌کلام'}
               </span>
               <div className={`w-6 h-6 rounded-full border border-[#4A5568] flex items-center justify-center text-[#4A5568] transition-all ${
-                isPlayingMusic ? 'bg-olive-700 text-white border-olive-700 animate-pulse' : 'group-hover:border-navy-900 group-hover:text-navy-900'
+                isPlaying ? 'bg-olive-700 text-white border-olive-700 animate-pulse' : 'group-hover:border-navy-900 group-hover:text-navy-900'
               }`}>
-                {isPlayingMusic ? (
+                {isPlaying ? (
                   <Pause size={11} />
                 ) : (
                   <Play size={11} className="translate-x-[0.5px]" />
@@ -93,9 +93,9 @@ export default function Navbar({ currentView, setCurrentView }) {
             <button
               onClick={handleToggleMusic}
               className="p-2 rounded-xl text-navy-800 hover:bg-[#EAE2D3]/60 transition-colors"
-              title={isPlayingMusic ? "توقف موزیک" : "پخش موزیک بی‌کلام"}
+              title={isPlaying ? "توقف موزیک" : "پخش موزیک بی‌کلام"}
             >
-              {isPlayingMusic ? <Pause size={20} className="text-olive-700" /> : <Play size={20} />}
+              {isPlaying ? <Pause size={20} className="text-olive-700" /> : <Play size={20} />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -131,8 +131,8 @@ export default function Navbar({ currentView, setCurrentView }) {
               onClick={handleToggleMusic}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-[#D5DFCA] bg-white text-navy-800 text-sm font-medium hover:bg-olive-50 transition-colors"
             >
-              {isPlayingMusic ? <Pause size={16} className="text-olive-700" /> : <Play size={16} />}
-              <span>{isPlayingMusic ? 'توقف موزیک بی‌کلام' : 'پخش موزیک بی‌کلام'}</span>
+              {isPlaying ? <Pause size={16} className="text-olive-700" /> : <Play size={16} />}
+              <span>{isPlaying ? 'توقف موزیک بی‌کلام' : 'پخش موزیک بی‌کلام'}</span>
             </button>
           </div>
         </div>
