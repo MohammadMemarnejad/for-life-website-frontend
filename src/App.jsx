@@ -43,7 +43,10 @@ export default function App() {
             />
 
             {/* 2. Story & 3 Pillars matching section.jpg */}
-            <StorySection onReadFullStory={() => handleNavigate('about')} />
+            <StorySection
+              onReadFullStory={() => handleNavigate('about')}
+              onNavigate={handleNavigate}
+            />
 
             {/* 3. Upcoming Gathering spotlight matching form.jpg */}
             <MeetupSection />

@@ -25,6 +25,33 @@ export const upcomingEvent = {
   status: "open", // open, full, completed
 };
 
+export const storySlides = [
+  {
+    id: "slide-2",
+    label: "دورهمی دوم",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&h=860&q=80",
+    href: "https://instagram.com/damizistan.ir",
+  },
+  {
+    id: "slide-3",
+    label: "دورهمی سوم",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&h=860&q=80",
+    href: "https://instagram.com/damizistan.ir",
+  },
+  {
+    id: "slide-4",
+    label: "دورهمی چهارم",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&h=860&q=80",
+    href: "https://instagram.com/damizistan.ir",
+  },
+  {
+    id: "slide-5",
+    label: "دورهمی پنجم",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&h=860&q=80",
+    href: "https://instagram.com/damizistan.ir",
+  },
+];
+
 export const features = [
   {
     id: "presence",
