@@ -132,7 +132,7 @@ export default function StorySection({ onReadFullStory, onNavigate, slides = sto
               <button
                 type="button"
                 onClick={() => step(1)}
-                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 text-[#5c6b3a] shadow-md flex items-center justify-center hover:bg-white"
+                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-white/95 text-[#5c6b3a] shadow-md flex items-center justify-center hover:bg-white"
                 aria-label="قاب‌های بعدی"
               >
                 <ChevronLeft size={20} />
@@ -140,7 +140,7 @@ export default function StorySection({ onReadFullStory, onNavigate, slides = sto
               <button
                 type="button"
                 onClick={() => step(-1)}
-                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 text-[#5c6b3a] shadow-md flex items-center justify-center hover:bg-white"
+                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 w-10 h-10 rounded-full bg-white/95 text-[#5c6b3a] shadow-md flex items-center justify-center hover:bg-white"
                 aria-label="قاب‌های قبلی"
               >
                 <ChevronRight size={20} />
