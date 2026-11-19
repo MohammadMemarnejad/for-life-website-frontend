@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ChevronRight, ChevronLeft, Image as ImageIcon, Sparkles, Shuffle } from 'lucide-react';
+import { ArrowLeft, Image as ImageIcon, Shuffle } from 'lucide-react';
 import { galleryItems } from '../../data/mockData';
 
 export default function GallerySlider({ onViewFullGallery, onSelectPhoto }) {
   const [randomPhotos, setRandomPhotos] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Pick 3 or 4 random images on mount
   const shufflePhotos = () => {
     const shuffled = [...galleryItems].sort(() => 0.5 - Math.random());
     setRandomPhotos(shuffled.slice(0, 4));
-    setCurrentIndex(0);
   };
 
   useEffect(() => {
     shufflePhotos();
   }, []);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % randomPhotos.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + randomPhotos.length) % randomPhotos.length);
-  };
 
   if (randomPhotos.length === 0) return null;
 
@@ -66,40 +56,21 @@ export default function GallerySlider({ onViewFullGallery, onSelectPhoto }) {
           </div>
         </div>
 
-        {/* Gallery Cards Grid / Slider */}
+        {/* Gallery Cards Grid / Slider — images only */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {randomPhotos.map((item, idx) => (
+          {randomPhotos.map((item) => (
             <div
               key={item.id}
               onClick={() => onSelectPhoto && onSelectPhoto(item)}
-              className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-400 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-400 transition-all duration-300 cursor-pointer"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt=""
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-[11px] font-medium">
-                  {item.event}
-                </div>
-              </div>
-
-              <div className="p-5 flex flex-col justify-between flex-grow">
-                <div>
-                  <div className="text-[11px] text-[#8C9681] mb-1.5">
-                    {item.date}
-                  </div>
-                  <h3 className="text-sm font-bold text-[#222D42] group-hover:text-olive-700 transition-colors line-clamp-2">
-                    {item.title}
-                  </h3>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-[#E7E3D8]/60 flex items-center justify-between text-xs text-olive-700 font-medium">
-                  <span>بزرگ‌نمایی عکس</span>
-                  <ArrowLeft size={13} className="group-hover:-translate-x-1 transition-transform" />
-                </div>
               </div>
             </div>
           ))}

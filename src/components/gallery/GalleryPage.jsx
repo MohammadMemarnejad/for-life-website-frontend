@@ -245,12 +245,12 @@ export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
                 <div
                   key={photo.id}
                   onClick={() => openLightbox(selectedAlbum.photos, idx)}
-                  className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-500 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-500 transition-all duration-300 cursor-pointer"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                     <img
                       src={photo.image}
-                      alt={photo.title}
+                      alt=""
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -260,17 +260,6 @@ export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
                         مشاهده در اندازه بزرگ
                       </span>
                     </div>
-                  </div>
-
-                  <div className="p-5 space-y-2">
-                    <h4 className="text-sm sm:text-base font-bold text-[#222D42] group-hover:text-olive-700 transition-colors">
-                      {photo.title}
-                    </h4>
-                    {photo.description && (
-                      <p className="text-xs text-[#707A65] font-light leading-relaxed line-clamp-2">
-                        {photo.description}
-                      </p>
-                    )}
                   </div>
                 </div>
               ))}
@@ -285,12 +274,12 @@ export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
               <div
                 key={item.id}
                 onClick={() => openLightbox(galleryItems, idx)}
-                className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-500 transition-all duration-300 cursor-pointer flex flex-col"
+                className="group bg-white rounded-3xl border border-[#E7E3D8] overflow-hidden shadow-sm hover:shadow-xl hover:border-olive-500 transition-all duration-300 cursor-pointer"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt=""
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -300,22 +289,6 @@ export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
                       بزرگ‌نمایی عکس
                     </span>
                   </div>
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-xs font-medium">
-                    {item.event}
-                  </div>
-                </div>
-
-                <div className="p-5 space-y-2">
-                  <div className="flex items-center gap-2 text-[11px] text-[#8C9681]">
-                    <Calendar size={12} />
-                    <span>{item.date}</span>
-                  </div>
-                  <h4 className="text-sm font-bold text-[#222D42] group-hover:text-olive-700 transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-[#5F6B7A] font-light leading-relaxed line-clamp-2">
-                    {item.description}
-                  </p>
                 </div>
               </div>
             ))}
@@ -362,38 +335,26 @@ export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
             </>
           )}
 
-          {/* Lightbox Content Card */}
+          {/* Lightbox Content — image only */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+            className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
           >
-            <div className="md:w-3/5 bg-black flex items-center justify-center overflow-hidden">
-              <img
-                src={activePhotoList[lightboxIndex].image}
-                alt={activePhotoList[lightboxIndex].title}
-                className="w-full h-full max-h-[70vh] object-contain select-none"
-              />
-            </div>
-            
-            <div className="md:w-2/5 p-6 sm:p-8 flex flex-col justify-between bg-[#FAF7F0] overflow-y-auto">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-olive-100 text-olive-800 text-xs font-semibold">
-                  <span>{selectedAlbum ? selectedAlbum.shortTitle || selectedAlbum.title : activePhotoList[lightboxIndex].event || 'دورهمی دمی برای زیستن'}</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-[#222D42]">
-                  {activePhotoList[lightboxIndex].title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed pt-2 border-t border-[#E7E3D8]">
-                  {activePhotoList[lightboxIndex].description}
-                </p>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-[#E7E3D8] text-[11px] text-[#707A65] flex items-center justify-between">
-                <span>تصویر {lightboxIndex + 1} از {activePhotoList.length}</span>
-                <span>اکوموزه بانو حیاتی • کرمان</span>
-              </div>
+            <img
+              src={activePhotoList[lightboxIndex].image}
+              alt=""
+              className="max-w-full max-h-[85vh] object-contain select-none rounded-2xl shadow-2xl"
+            />
+            <div className="mt-4 text-[11px] text-white/70 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+              <span>تصویر {lightboxIndex + 1} از {activePhotoList.length}</span>
+              {(activePhotoList[lightboxIndex].location || selectedAlbum?.location) && (
+                <>
+                  <span className="text-white/40">•</span>
+                  <span>
+                    {activePhotoList[lightboxIndex].location || selectedAlbum.location}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>

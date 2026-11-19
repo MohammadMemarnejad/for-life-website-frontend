@@ -77,7 +77,7 @@ export default function MinimalMusicPlayer() {
               {/* Persian Window Thumbnail with gentle pulse animation */}
               <div className="relative w-11 h-11 rounded-2xl overflow-hidden bg-[#EAE2D3] border border-[#D5DFCA] flex-shrink-0 flex items-center justify-center shadow-inner">
                 <img
-                  src="/brand-logo.png"
+                  src="/brand-logo.svg"
                   alt="لوگو دمی برای زیستن"
                   className={`w-8 h-8 object-contain transition-transform duration-700 ${
                     isPlaying ? 'scale-105' : 'scale-95 opacity-80'

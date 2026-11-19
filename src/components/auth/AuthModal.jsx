@@ -54,7 +54,7 @@ export default function AuthModal() {
         {/* Brand Header */}
         <div className="text-center space-y-2 mb-6">
           <div className="w-14 h-14 mx-auto rounded-2xl bg-white p-2 shadow-sm border border-[#E7E3D8] mb-3 flex items-center justify-center">
-            <img src="/favicon.png" alt="آیکون دمی برای زیستن" className="w-full h-full object-contain" />
+            <img src="/brand-logo.svg" alt="آیکون دمی برای زیستن" className="w-full h-full object-contain" />
           </div>
           <h3 className="text-xl font-bold text-[#222D42]">
             {authMode === 'login' ? 'ورود به «دَمی برای زیستن»' : 'عضویت در جمع همراهان'}

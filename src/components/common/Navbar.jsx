@@ -30,19 +30,18 @@ export default function Navbar({ currentView, setCurrentView }) {
   return (
     <header className="sticky top-0 z-40 bg-[#FAF7F0]/95 backdrop-blur-md border-b border-[#E7E3D8]/60 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-28 sm:h-32">
           
-          {/* Right: New Brand Logo Lockup (Typography + Arched Window Icon) */}
+          {/* Right: Brand Logo — سایز لوگو را از className تصویر پایین عوض کنید */}
           <div 
             onClick={() => handleNavClick('home')}
             className="flex items-center cursor-pointer transition-transform duration-200 hover:scale-[1.02]"
             title={siteConfig.name}
           >
             <img 
-              src="/brand-logo.png" 
-              srcSet="/brand-logo.png 1x, /brand-logo-hd.png 2x"
+              src="/brand-logo.svg" 
               alt={siteConfig.name} 
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="h-20 sm:h-24 md:h-28 w-auto object-contain"
             />
           </div>
 

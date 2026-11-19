@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand Info & City - Exactly matching footer.jpg */}
           <div className="order-1 md:order-2 text-center md:text-right">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-1.5">
-              <img src="/favicon.png" alt="آیکون دمی برای زیستن" className="w-5 h-5 object-contain" />
+              <img src="/brand-logo.svg" alt="آیکون دمی برای زیستن" className="w-5 h-5 object-contain" />
               <span className="text-base font-bold text-navy-900 tracking-tight">
                 {siteConfig.name}
               </span>

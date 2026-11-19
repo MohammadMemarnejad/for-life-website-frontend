@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Sparkles, Send, CheckCircle2, Bookmark, Loader2 } from 'lucide-react';
+import { Calendar, Clock, MapPin, Sparkles, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import { upcomingEvent, siteConfig } from '../../data/mockData';
 
 export default function MeetupSection() {
@@ -8,7 +8,6 @@ export default function MeetupSection() {
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
-    note: '',
   });
 
   const handleSubmit = async (e) => {
@@ -20,7 +19,6 @@ export default function MeetupSection() {
     const payload = {
       name: formData.name.trim(),
       contact: formData.contact.trim(),
-      note: formData.note.trim(),
       event: upcomingEvent.title,
       date: upcomingEvent.date,
       timestamp: new Date().toLocaleString('fa-IR'),
@@ -136,39 +134,37 @@ export default function MeetupSection() {
           </div>
 
           {/* Left Column: Hospitality & Registration Readiness Info */}
-          <div className="lg:col-span-6 bg-white/80 rounded-3xl border border-[#E7E3D8] p-8 sm:p-10 shadow-sm flex flex-col justify-between min-h-[460px]">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-xl font-bold text-[#222D42]">
-                  حضور در این دورهمی
-                </h4>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  ورود برای عموم علاقه‌مندان آزاد است
-                </span>
-              </div>
+          <div className="lg:col-span-6 bg-white/80 rounded-3xl border border-[#E7E3D8] p-8 sm:p-10 shadow-sm flex flex-col min-h-[460px]">
+            <div className="flex items-center justify-between mb-6">
+              <h4 className="text-xl font-bold text-[#222D42]">
+                حضور در این دورهمی
+              </h4>
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ورود برای عموم علاقه‌مندان آزاد است
+              </span>
+            </div>
 
-              <p className="text-xs sm:text-sm text-[#5F6B7A] leading-relaxed mb-6 font-light">
-                در نسخه اولیه وب‌سایت، حضور در دورهمی‌ها نیازمند ثبت‌نام رسمی نیست و ورود رایگان و صمیمانه است. با این حال، چنانچه تمایل دارید پیش از دورهمی متن شعر یا آمادگی خود را اعلام فرمایید یا یادآوری دریافت کنید، می‌توانید یادداشت کوتاهی بگذارید:
-              </p>
-
-              {interestSubmitted ? (
-                <div className="p-6 bg-olive-50 border border-olive-200 rounded-2xl text-center space-y-3 fade-in">
+            {interestSubmitted ? (
+              <div className="flex-1 flex items-center">
+                <div className="w-full p-6 bg-olive-50 border border-olive-200 rounded-2xl text-center space-y-3 fade-in">
                   <CheckCircle2 size={36} className="text-olive-700 mx-auto" />
                   <h5 className="text-base font-bold text-olive-900">
-                    مشتاقانه منتظر دیدارتان در اکوموزه بانو حیاتی هستیم!
+                    مشتاقانه منتظر دیدارتان در {upcomingEvent.location} هستیم!
                   </h5>
                   <p className="text-xs text-olive-800 leading-relaxed">
-                    یادداشت شما با موفقیت ثبت شد. پنج‌شنبه با یک استکان چای گرم پذیرای شما خواهیم بود.
+                    حضور شما با موفقیت ثبت شد. پنج‌شنبه با یک استکان چای گرم پذیرای شما خواهیم بود.
                   </p>
                   <button
                     onClick={() => setInterestSubmitted(false)}
                     className="text-xs text-olive-700 underline font-medium mt-2"
                   >
-                    ثبت یادداشت جدید
+                    ثبت حضور جدید
                   </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
+                <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-semibold text-navy-800 mb-1.5">
                       نام و نام خانوادگی
@@ -185,31 +181,20 @@ export default function MeetupSection() {
 
                   <div>
                     <label className="block text-xs font-semibold text-navy-800 mb-1.5">
-                      شماره تماس یا آیدی اینستاگرام
+                      شماره تماس
                     </label>
                     <input
                       type="text"
-                      placeholder="0913... یا @username"
+                      placeholder="مثلاً: ۰۹۱۳۰۰۰۰۰۰۰"
                       value={formData.contact}
                       onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-[#E7E3D8] bg-[#FAF7F0]/60 text-sm focus:outline-none focus:border-olive-600 focus:bg-white transition-colors dir-ltr text-right"
                       required
                     />
                   </div>
+                </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-navy-800 mb-1.5">
-                      یادداشت یا شعری که دوست دارید (اختیاری)
-                    </label>
-                    <textarea
-                      rows={3}
-                      placeholder="اگر بار اولتان است یا متنی برای خواندن دارید بنویسید..."
-                      value={formData.note}
-                      onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E7E3D8] bg-[#FAF7F0]/60 text-sm focus:outline-none focus:border-olive-600 focus:bg-white transition-colors resize-none"
-                    />
-                  </div>
-
+                <div className="flex-1 flex items-center">
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -227,12 +212,11 @@ export default function MeetupSection() {
                       </>
                     )}
                   </button>
-                </form>
-              )}
-            </div>
+                </div>
+              </form>
+            )}
 
-            <div className="mt-6 pt-4 border-t border-[#E7E3D8]/60 flex items-center justify-between text-xs text-[#8C9681]">
-              <span>پذیرایی با چای سنتی ایرانی</span>
+            <div className="mt-6 pt-4 border-t border-[#E7E3D8]/60 text-xs text-[#8C9681]">
               <span>همراه داشتن کتاب یا شعر دلخواه آزاد است</span>
             </div>
           </div>
