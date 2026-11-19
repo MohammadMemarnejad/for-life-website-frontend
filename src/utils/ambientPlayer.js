@@ -1,4 +1,8 @@
-import { siteConfig } from '../data/mockData';
+let cachedMusicUrl = '/music.mp3';
+
+export function setAmbientMusicUrl(url) {
+  if (url) cachedMusicUrl = url;
+}
 
 let audioCtx = null;
 let masterGain = null;
@@ -72,7 +76,7 @@ function createAmbientSound() {
 
 export function toggleAmbientMusic(onStateChange) {
   if (!htmlAudio) {
-    const src = (siteConfig && siteConfig.musicUrl) ? siteConfig.musicUrl : '/music.mp3';
+    const src = cachedMusicUrl || '/music.mp3';
     htmlAudio = new Audio(src);
     htmlAudio.loop = true;
     htmlAudio.volume = 0.5;

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { siteConfig } from '../../data/mockData';
+import { useContent } from '../../context/ContentContext';
 import { Menu, X, Play, Pause } from 'lucide-react';
 import { useAudio } from '../../context/AudioContext';
 
 export default function Navbar({ currentView, setCurrentView }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isPlaying, togglePlay, setIsExpanded } = useAudio();
+  const { siteConfig } = useContent();
 
   const navItems = [
     { id: 'home', label: 'خانه' },

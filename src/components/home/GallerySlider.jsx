@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Image as ImageIcon, Shuffle } from 'lucide-react';
-import { galleryItems } from '../../data/mockData';
+import { useContent } from '../../context/ContentContext';
 
 export default function GallerySlider({ onViewFullGallery, onSelectPhoto }) {
+  const { galleryItems } = useContent();
   const [randomPhotos, setRandomPhotos] = useState([]);
 
-  // Pick 3 or 4 random images on mount
+  // Pick 3 or 4 random images on mount / when gallery updates
   const shufflePhotos = () => {
     const shuffled = [...galleryItems].sort(() => 0.5 - Math.random());
     setRandomPhotos(shuffled.slice(0, 4));
@@ -13,7 +14,7 @@ export default function GallerySlider({ onViewFullGallery, onSelectPhoto }) {
 
   useEffect(() => {
     shufflePhotos();
-  }, []);
+  }, [galleryItems]);
 
   if (randomPhotos.length === 0) return null;
 

@@ -99,7 +99,7 @@ export default function MinimalMusicPlayer() {
                   )}
                 </h4>
                 <p className="text-xs text-[#718096] truncate mt-0.5 font-normal">
-                  {trackInfo.album}
+                  {trackInfo.subtitle || trackInfo.album}
                 </p>
               </div>
             </div>

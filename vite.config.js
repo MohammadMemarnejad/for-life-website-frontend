@@ -6,6 +6,18 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    open: false
-  }
+    open: false,
+    proxy: {
+      '/api': {
+        target: 'https://damizistan.ir',
+        changeOrigin: true,
+        secure: true,
+      },
+      '/uploads': {
+        target: 'https://damizistan.ir',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 })

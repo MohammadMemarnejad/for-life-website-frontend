@@ -42,7 +42,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Vazirmatn', 'sans-serif'],
+        sans: ['Modam', 'Tahoma', 'sans-serif'],
       },
       borderRadius: {
         '2xl': '1rem',

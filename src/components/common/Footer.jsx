@@ -1,8 +1,9 @@
 import React from 'react';
-import { siteConfig } from '../../data/mockData';
 import { ExternalLink } from 'lucide-react';
+import { useContent } from '../../context/ContentContext';
 
 export default function Footer() {
+  const { siteConfig } = useContent();
   return (
     <footer className="border-t border-[#E7E3D8] bg-[#FAF7F0] py-8 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

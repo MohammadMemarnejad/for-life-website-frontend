@@ -1,0 +1,565 @@
+{
+  "siteConfig": {
+    "name": "دَمی برای زیستن",
+    "domain": "damizistan.ir",
+    "slogan": "برای لمسِ لحظه‌ای زندگی در آشوبِ روزمرگی",
+    "city": "کرمان",
+    "venue": "اکوموزه بانو حیاتی",
+    "instagramHandle": "damizistan.ir",
+    "instagramUrl": "https://instagram.com/damizistan",
+    "phone": "۰۹۱۳۰۰۰۰۰۰۰",
+    "musicUrl": "/music.mp3",
+    "googleSheetScriptUrl": "https://docs.google.com/spreadsheets/d/1IojjcySRy7YvA1mW9WBAZU19jpKtVABhmQIxY0FFl44/edit?gid=0#gid=0",
+    "heroImage": "/window-hero.png",
+    "storyBadge": "داستان ما",
+    "storyTitle": "مکثی کوتاه...",
+    "storyText": "«دَمی برای زیستن» دورهمی‌ای بر محور ادبیات است که در آن تلاش می‌کنیم با استفاده از شعر و ادبیات برای لمس لحظه‌ای زندگی در آشوب روزمرگی بکوشیم.",
+    "storyImage": "/uploads/images/1b6a2a929dc8a764.png",
+    "storyButtonLabel": "داستان دمی برای زیستن"
+  },
+  "upcomingEvent": {
+    "title": "دورهمی",
+    "subtitle": "یک‌سالگی دمی برای زیستن",
+    "badge": "ظرفیت محدود • کرمان",
+    "categoryBadge": "ثبت نام",
+    "heading": "دورهمی پیش رو",
+    "subheading": "برای لمس لحظه‌ای زندگی در‌ آشوب روزمرگی",
+    "date": "پنج‌شنبه ۲۸ آبان ماه ۱۴۰۵",
+    "time": "۱۶:۳۰ الی ۱۸:۰۰",
+    "location": "کرمان، خیابان شریعتی، حدفاصل میدان باغ ملی و چهار راه طهماسب آباد، موزه هنرهای معاصر صنعتی",
+    "note": "دورهمی در کتابخانه موزه برگزار خواهد شد.",
+    "status": "open"
+  },
+  "meetupSection": {
+    "heading": "دورهمی پیش رو",
+    "subheading": "برای لمس لحظه‌ای زندگی در‌ آشوب روزمرگی",
+    "categoryBadge": "ثبت نام"
+  },
+  "upcomingEvents": [
+    {
+      "id": "event-1",
+      "title": "دورهمی",
+      "subtitle": "یک‌سالگی دمی برای زیستن",
+      "badge": "ظرفیت محدود • کرمان",
+      "date": "پنج‌شنبه ۲۸ آبان ماه ۱۴۰۵",
+      "time": "۱۶:۳۰ الی ۱۸:۰۰",
+      "location": "کرمان، خیابان شریعتی، حدفاصل میدان باغ ملی و چهار راه طهماسب آباد، موزه هنرهای معاصر صنعتی",
+      "note": "دورهمی در کتابخانه موزه برگزار خواهد شد.",
+      "status": "open"
+    }
+  ],
+  "storySlides": [
+    {
+      "id": "slide-2",
+      "label": "دورهمی دوم",
+      "image": "/uploads/images/3413bf57c380b0b9.png",
+      "href": "https://www.instagram.com/p/DeGf3jTjjC3/?dmpr=OTlheDF6MHduYTFj"
+    },
+    {
+      "id": "slide-3",
+      "label": "دورهمی سوم",
+      "image": "/uploads/images/9a495158c6862994.png",
+      "href": "https://www.instagram.com/p/DeGhG3vjjBO/?gwpx=OXUyODl2cWxwbHVn"
+    },
+    {
+      "id": "slide-4",
+      "label": "دورهمی چهارم",
+      "image": "/uploads/images/268ecf891477235e.png",
+      "href": "https://www.instagram.com/p/DeGjWbYDmuO/?dmpr=MTRxOTZuZTB1N3prbg=="
+    },
+    {
+      "id": "slide-5",
+      "label": "دورهمی پنجم",
+      "image": "/uploads/images/ef3dde6e924f283f.png",
+      "href": "https://www.instagram.com/p/DeGlPiWjvH6/?evlk=MWNyZmhjZmZxemxnbQ=="
+    },
+    {
+      "id": "slide-1v82ov",
+      "label": "دورهمی ششم",
+      "image": "/uploads/images/d636d56ecd6ab8ec.png",
+      "href": "https://www.instagram.com/p/DeGmGaqDuSy/?dmpr=MXN1ZXhtZGQwempzcQ=="
+    },
+    {
+      "id": "slide-vdraal",
+      "label": "دورهمی هفتم",
+      "image": "/uploads/images/7eb340f0a2d079e8.png",
+      "href": "https://www.instagram.com/p/DeGmx-Jjvys/?gwpx=bWVoMXMxdm03enV2"
+    },
+    {
+      "id": "slide-y8fyop",
+      "label": "دورهمی هشتم",
+      "image": "/uploads/images/176c9f6a83477bf0.png",
+      "href": "https://www.instagram.com/p/DeRwO-4CM93/?avpt=dWZyZXRhdWNncjVx"
+    }
+  ],
+  "features": [
+    {
+      "id": "presence",
+      "badge": "حس حضور",
+      "title": "هم‌نشینی عمیق",
+      "description": "گفت‌وگوهایی صمیمی و واقعی، دور از سطحی‌نگری و شتاب‌زدگی روزمره.",
+      "linkText": "آشنایی با اتمسفر جمع ←",
+      "actionText": "",
+      "icon": "hourglass"
+    },
+    {
+      "id": "interactive",
+      "badge": "تعاملی",
+      "title": "بازی با واژه‌ها",
+      "description": "تجربه‌های دل‌نشین گروهی، چیدمان پازل شعر و کشف معانی نو.",
+      "linkText": "",
+      "actionText": "امتحان کردن پازل شعر آنلاین!",
+      "icon": "grid"
+    },
+    {
+      "id": "poetry",
+      "badge": "شعر و کلمه",
+      "title": "شعر و متن‌خوانی",
+      "description": "فرصتی برای خواندن، شنیدن و جاری شدن کلمات ناب از عمق جان.",
+      "linkText": "مرور متن‌های خوانده‌شده ←",
+      "actionText": "",
+      "icon": "book"
+    }
+  ],
+  "meetupAlbums": [
+    {
+      "id": "album-k1jij6",
+      "title": "دورهمی هشتم",
+      "shortTitle": "",
+      "date": "۱۸ مهرماه ۱۴۰۵",
+      "location": "",
+      "coverImage": "/uploads/images/82291dbdde4a53d2.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-mzxcd6",
+          "title": "IMG_20261008_163016",
+          "image": "/uploads/images/c67e4b24119b1188.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-k5mzr3",
+          "title": "IMG_20261008_163140",
+          "image": "/uploads/images/cc34b788c493531e.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-8fpnvr",
+          "title": "IMG_20261008_203735",
+          "image": "/uploads/images/bb4af092900b0717.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-zz0lq6",
+          "title": "20261008_174952",
+          "image": "/uploads/images/a5dabd6e94821455.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-30b9zp",
+          "title": "20261008_181400",
+          "image": "/uploads/images/0d743015623ba8e1.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-jsk94o",
+          "title": "20261008_172705",
+          "image": "/uploads/images/686dfcbc1f743248.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-9dz8he",
+          "title": "20261008_172744",
+          "image": "/uploads/images/cb7d8227377fe7c2.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-fiwase",
+          "title": "20261008_172814",
+          "image": "/uploads/images/6432932f810eae44.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-x88sgo",
+          "title": "20261008_172918",
+          "image": "/uploads/images/1bedfca8bcf5c045.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-69ycbn",
+          "title": "20261008_172143(0)",
+          "image": "/uploads/images/cc3a41e0a366db78.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-co3a2g",
+          "title": "20261008_172410",
+          "image": "/uploads/images/96ae8ffe18fae189.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "album-h41yz8",
+      "title": "دورهمی هفتم",
+      "shortTitle": "",
+      "date": "۲۶ شهریورماه ۱۴۰۵",
+      "location": "دفتر مرکزبرندسازی شهرداری کرمان",
+      "coverImage": "/uploads/images/99f1ec6346784e19.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-82g1bw",
+          "title": "20260917_164447",
+          "image": "/uploads/images/777cf1da27800bf0.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-ef8okb",
+          "title": "20260917_164557",
+          "image": "/uploads/images/0d1772b826be5da7.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-be51tb",
+          "title": "20260917_164717(1)",
+          "image": "/uploads/images/e44b8c307d0f2f4e.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-ahm44n",
+          "title": "20260917_164736",
+          "image": "/uploads/images/c82e115ae19e278d.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-h98ru7",
+          "title": "20260917_154701",
+          "image": "/uploads/images/ce08dae0291926c6.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-zj1805",
+          "title": "20260917_164333",
+          "image": "/uploads/images/22d0f241de82916e.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "album-20e06x",
+      "title": "دورهمی ششم",
+      "shortTitle": "",
+      "date": "۲۲ مردادماه ۱۴۰۵",
+      "location": "کافه کتاب مه‌آن",
+      "coverImage": "/uploads/images/ced4cd2632895e54.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-ey18qh",
+          "title": "20260813_174019",
+          "image": "/uploads/images/1be343cfa4874085.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-fpymx3",
+          "title": "20260813_174541",
+          "image": "/uploads/images/58835203ee74f77a.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-e6ul1s",
+          "title": "20260813_175510",
+          "image": "/uploads/images/a27d8d3b8488cf06.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-9mis34",
+          "title": "IMG_7179",
+          "image": "/uploads/images/58447b31e14b7a4a.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-qn9r42",
+          "title": "IMG_7242",
+          "image": "/uploads/images/7c28bfc8f37cbc14.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-5co9sn",
+          "title": "IMG_7301",
+          "image": "/uploads/images/1ab98a8756d8e5b8.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "album-4bniu9",
+      "title": "دورهمی پنجم",
+      "shortTitle": "",
+      "date": "۳۱ تیرماه ۱۴۰۵",
+      "location": "کافه کتاب مه‌آن",
+      "coverImage": "/uploads/images/dd9d4e74a61b9e6c.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-wykglj",
+          "title": "20260722_181210",
+          "image": "/uploads/images/f706c9bab28099cc.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-osyof0",
+          "title": "20260722_185648",
+          "image": "/uploads/images/ded285b68f6a3bdd.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-j6z34b",
+          "title": "20260722_171945",
+          "image": "/uploads/images/4f5e2c80b426f85f.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-8v2fp6",
+          "title": "20260722_181620",
+          "image": "/uploads/images/742f45ee77c517dc.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "album-x97uoo",
+      "title": "دورهمی چهارم",
+      "shortTitle": "",
+      "date": "۲ تیرماه ۱۴۰۴",
+      "location": "کارخانه نوآوری کرمان",
+      "coverImage": "/uploads/images/96621689994c1f0e.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-kca8tw",
+          "title": "20260623_180855",
+          "image": "/uploads/images/5e86c436bab5dcd8.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-f0xxqq",
+          "title": "20260623_181240",
+          "image": "/uploads/images/6963e1197aabe344.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-00xhec",
+          "title": "20260623_174430",
+          "image": "/uploads/images/cb4d2bdeb42fb715.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-fat0rj",
+          "title": "20260623_174435",
+          "image": "/uploads/images/397d4d432c0f9e49.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-ctsnod",
+          "title": "20260623_161159",
+          "image": "/uploads/images/0a52e20331fc3d89.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-zkjmvd",
+          "title": "20260623_174057",
+          "image": "/uploads/images/3c53224a7149201b.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-ag299k",
+          "title": "20260623_174248",
+          "image": "/uploads/images/8cc51d142dbd4009.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-42y9tp",
+          "title": "20260623_174310",
+          "image": "/uploads/images/c3ed361b93e89609.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "album-clgvki",
+      "title": "دورهمی سوم",
+      "shortTitle": "",
+      "date": "۱۳ آذرماه ۱۴۰۴",
+      "location": "کارخانه نوآوری کرمان",
+      "coverImage": "/uploads/images/370696fff24baac4.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-vnqxzk",
+          "title": "IMG_6593 (1)",
+          "image": "/uploads/images/4a2b5fdc7284dcca.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-6blgvk",
+          "title": "IMG_7167",
+          "image": "/uploads/images/cc6bbfc11db84717.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-gm9pg1",
+          "title": "IMG_7176",
+          "image": "/uploads/images/ffdf1d4a6810ce2f.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-9an2to",
+          "title": "IMG_7177",
+          "image": "/uploads/images/e3b8e0d1c11f8448.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-hdowqq",
+          "title": "IMG_7192",
+          "image": "/uploads/images/4df882256dc2d1ef.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-vnwnqu",
+          "title": "IMG_7197",
+          "image": "/uploads/images/89b00a3b9dad208a.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-5dboe7",
+          "title": "IMG_7207",
+          "image": "/uploads/images/a702e0bb045f1365.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-p7mn9q",
+          "title": "IMG_7211",
+          "image": "/uploads/images/b8659d9b5e888aae.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-iwv5s4",
+          "title": "IMG_7212",
+          "image": "/uploads/images/0d404d8cb7a1eaf3.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-n6gpa7",
+          "title": "IMG_7229",
+          "image": "/uploads/images/fa2185bb56f767e8.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-tu2roy",
+          "title": "IMG_7232",
+          "image": "/uploads/images/ab06a1ba6b47c53b.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-tc7zsv",
+          "title": "IMG_7233",
+          "image": "/uploads/images/e771c344898afbff.jpg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": "mehr-1403",
+      "title": "دورهمی دوم",
+      "shortTitle": "",
+      "date": "۲۲ آبان ماه ۱۴۰۴",
+      "location": "کارخانه نوآوری کرمان",
+      "coverImage": "/uploads/images/783acfc635fc9f54.jpg",
+      "description": "",
+      "photos": [
+        {
+          "id": "photo-ey000u",
+          "title": "IMG_6580",
+          "image": "/uploads/images/1b7cdb7cd5cd1ead.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-th8w4w",
+          "title": "IMG_6570(1)",
+          "image": "/uploads/images/02be9a7c6c1ea4fd.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-1t41zl",
+          "title": "IMG_6568",
+          "image": "/uploads/images/0eb387fba81bfb6f.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-lkrj5x",
+          "title": "IMG_6560",
+          "image": "/uploads/images/566ef3cda7d9e284.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-cx8oxd",
+          "title": "IMG_6542",
+          "image": "/uploads/images/9c5d1206735a431e.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-1u5kau",
+          "title": "IMG_6548",
+          "image": "/uploads/images/33f3bee78ccebf63.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-2y0c67",
+          "title": "IMG_6539",
+          "image": "/uploads/images/452443fa8bdb6c61.jpg",
+          "description": ""
+        },
+        {
+          "id": "photo-0bhgvk",
+          "title": "IMG_6550 (1)(1)(1)(1)",
+          "image": "/uploads/images/db18825e5377d4c1.jpg",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "aboutContent": {
+    "heroTitle": "داستانِ «دَمی برای زیستن»",
+    "heroSubtitle": "برای لمس لحظه‌ای زندگی در آشوب روزمرگی",
+    "philosophy": {
+      "title": "فلسفه ما: مکث در هیاهو و تمرین «آهستگی»",
+      "p1": "در دنیایی که همه چیز با سرعتی سرسام‌آور پیش می‌رود و شتاب‌زدگی به عادتی ناگزیر تبدیل شده است، ما اغلب فرصتِ نگاه کردن به آسمان، لذت بردن از لحظات، یا شنیدنِ واقعیِ صدای یک دوست را از دست می‌دهیم.",
+      "p2": "«دَمی برای زیستن» پاسخی است به این دل‌تنگیِ عمیق. ما دور هم جمع می‌شویم نه برای سخنرانی‌های سنگین و خسته کننده، بلکه برای ایجاد خلوتی امن و مشترک. اینجا جایی است برای ورق زدن کتاب‌ها، زمزمهٔ شعری که در گلو مانده، و تجربه‌ای از حضور داشتن در لحظه."
+    },
+    "values": [
+      {
+        "title": "اصالت و سادگی",
+        "desc": "دور از تشریفات و تجملات؛ به سادگی یک استکان چای و یک صفحه شعر."
+      },
+      {
+        "title": "شنیدنِ بدون قضاوت",
+        "desc": "در این جمع هر کسی مجالی امن برای بیان احساس و خواندن کلمات دلخواهش دارد."
+      },
+      {
+        "title": "پیوند با هویت و ادبیات",
+        "desc": "ادبیات فارسی گنجینه‌ای بی‌پایان برای معنابخشی به لحظه‌های روزمرگی ماست."
+      },
+      {
+        "title": "همدلی و حضور در لحظه",
+        "desc": "تجربه عمیق شنیدن و معاشرت در لحظه حضور در دورهمی"
+      }
+    ],
+    "kermanStory": {
+      "title": "چرا این دورهمی راه‌اندازی شد؟",
+      "desc": "«دمی برای زیستن» از یک نیاز ساده اما واقعی شکل گرفت؛ نیاز به مکث کردن در میان شتابِ روزمرگی‌ها. دلمان می‌خواست فضایی گرم و بی‌تکلف بسازیم تا شعر، هنر و گفت‌وگو را به متنِ زندگی بیاوریم. جایی که آدم‌ها فقط کنار هم ننشینند، بلکه با کلمات و شنیدنِ یکدیگر، لحظه‌ای را واقعاً زندگی و لمس کنند."
+    }
+  },
+  "tracks": []
+}

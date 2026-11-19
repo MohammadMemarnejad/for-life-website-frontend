@@ -1,8 +1,9 @@
 import React from 'react';
-import { aboutContent, siteConfig } from '../../data/mockData';
 import { Sparkles, Heart, Feather, Compass, Users, MapPin, Coffee } from 'lucide-react';
+import { useContent } from '../../context/ContentContext';
 
 export default function AboutPage({ onExploreMeetup }) {
+  const { aboutContent, siteConfig } = useContent();
   const valueIcons = [
     <Feather className="w-6 h-6 text-olive-700" />,
     <Heart className="w-6 h-6 text-olive-700" />,

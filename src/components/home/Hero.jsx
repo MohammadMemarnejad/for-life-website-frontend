@@ -1,6 +1,8 @@
 import React from 'react';
+import { useContent } from '../../context/ContentContext';
 
 export default function Hero({ onExploreClick, onMeetupClick }) {
+  const { siteConfig } = useContent();
   const handleMeetupClick = (e) => {
     const elem = document.getElementById('meetup-section');
     if (elem) {
@@ -21,7 +23,7 @@ export default function Hero({ onExploreClick, onMeetupClick }) {
         {/* 2. Central Persian Stained-Glass Window Art (Orsi) */}
         <div className="relative z-10 w-full max-w-[340px] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[660px] px-4 transition-transform duration-500 hover:scale-[1.015]">
           <img
-            src="/window-hero.png"
+            src={siteConfig.heroImage || '/window-hero.png'}
             alt="پنجره ارسی سنتی ایرانی گشوده به دورهمی - دمی برای زیستن"
             className="w-full h-auto object-contain filter drop-shadow-2xl select-none"
             loading="eager"

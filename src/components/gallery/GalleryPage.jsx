@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { meetupAlbums, galleryItems } from '../../data/mockData';
 import { 
   X, ChevronRight, ChevronLeft, Calendar, MapPin, 
   Sparkles, Images, ArrowRight, ArrowLeft, Eye, Grid3X3, FolderOpen 
 } from 'lucide-react';
+import { useContent } from '../../context/ContentContext';
 
 export default function GalleryPage({ selectedPhoto, setSelectedPhoto }) {
+  const { meetupAlbums, galleryItems } = useContent();
   // State for selected meetup album (null = show all albums)
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   // View mode: 'albums' (default) or 'all' (continuous grid)

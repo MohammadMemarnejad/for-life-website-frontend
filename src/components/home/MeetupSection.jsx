@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, Sparkles, Send, CheckCircle2, Loader2 } from 'lucide-react';
-import { upcomingEvent, siteConfig } from '../../data/mockData';
+import { useContent } from '../../context/ContentContext';
 
 export default function MeetupSection() {
+  const { upcomingEvent, siteConfig } = useContent();
   const [interestSubmitted, setInterestSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({

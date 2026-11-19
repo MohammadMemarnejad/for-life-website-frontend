@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
-import { siteConfig } from '../data/mockData';
+import { useContent } from './ContentContext';
 
 const AudioContext = createContext(null);
 
@@ -7,6 +7,7 @@ const AudioContext = createContext(null);
 const FALLBACK_NOTES = [146.83, 164.81, 196.00, 220.00, 261.63, 293.66, 329.63, 392.00, 440.00];
 
 export function AudioProvider({ children }) {
+  const { siteConfig, tracks } = useContent();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -21,10 +22,16 @@ export function AudioProvider({ children }) {
   const synthGainRef = useRef(null);
   const synthIntervalRef = useRef(null);
 
+  const activeTrack = (tracks || []).find((t) => t?.url) || null;
   const trackInfo = {
-    title: 'نوای دل‌نشین سنتور',
-    artist: 'دَمی برای زیستن',
-    album: 'تکنوازی سنتور • دستگاه شور',
+    title: activeTrack?.title || 'نوای دل‌نشین سنتور',
+    artist: activeTrack?.artist || siteConfig?.name || 'دَمی برای زیستن',
+    album: activeTrack?.album || 'تکنوازی سنتور',
+    description: activeTrack?.description || '',
+    subtitle:
+      activeTrack?.description ||
+      [activeTrack?.artist, activeTrack?.album].filter(Boolean).join(' • ') ||
+      'دستگاه شور',
   };
 
   // Helper for Web Audio API fallback in case MP3 file fails to play
@@ -99,11 +106,17 @@ export function AudioProvider({ children }) {
   };
 
   useEffect(() => {
-    const audioSrc = (siteConfig && siteConfig.musicUrl) ? siteConfig.musicUrl : '/music.mp3';
+    const audioSrc =
+      activeTrack?.url ||
+      (siteConfig && siteConfig.musicUrl) ||
+      '/music.mp3';
     const audio = new Audio(audioSrc);
     audio.loop = true;
-    audio.volume = volume;
+    audio.volume = isMuted ? 0 : volume;
     audioRef.current = audio;
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setDuration(0);
 
     const handleLoadedMetadata = () => {
       if (audio.duration && !isNaN(audio.duration)) {
@@ -133,7 +146,7 @@ export function AudioProvider({ children }) {
       audio.removeEventListener('ended', handleEnded);
       stopSynthesizerFallback();
     };
-  }, []);
+  }, [activeTrack?.url, siteConfig?.musicUrl]);
 
   const togglePlay = () => {
     const audio = audioRef.current;

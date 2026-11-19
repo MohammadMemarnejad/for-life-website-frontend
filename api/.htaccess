@@ -1,0 +1,4 @@
+<FilesMatch "\.(json|md|txt)$">
+  Require all denied
+  Deny from all
+</FilesMatch>
