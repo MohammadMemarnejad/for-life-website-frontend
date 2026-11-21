@@ -30,6 +30,11 @@ export const aboutContent = seed.aboutContent || {
   philosophy: { title: '', p1: '', p2: '' },
   values: [],
   kermanStory: { title: '', desc: '' },
+  team: {
+    title: 'تیم دمی برای زیستن',
+    subtitle: '',
+    members: [],
+  },
 };
 
 export const tracks = Array.isArray(seed.tracks) && seed.tracks.length

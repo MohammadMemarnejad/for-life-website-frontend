@@ -432,6 +432,28 @@ function sanitize_content(array $input): array
         ];
     }
 
+    $teamRaw = is_array($about['team'] ?? null) ? $about['team'] : [];
+    $teamMembers = [];
+    foreach (array_slice(is_array($teamRaw['members'] ?? null) ? $teamRaw['members'] : [], 0, 8) as $i => $member) {
+        if (!is_array($member)) {
+            continue;
+        }
+        $teamMembers[] = [
+            'id' => clip_id($member['id'] ?? '', 'member-' . ($i + 1)),
+            'name' => clip_text($member['name'] ?? '', 80),
+            'role' => clip_text($member['role'] ?? '', 80),
+            'bio' => clip_text($member['bio'] ?? '', 400),
+            'contact' => clip_text($member['contact'] ?? '', 160),
+            'work' => clip_text($member['work'] ?? '', 400),
+            'image' => safe_url($member['image'] ?? ''),
+        ];
+    }
+    $team = [
+        'title' => clip_text($teamRaw['title'] ?? 'تیم دمی برای زیستن', 120),
+        'subtitle' => clip_text($teamRaw['subtitle'] ?? '', 240),
+        'members' => $teamMembers,
+    ];
+
     $events = sanitize_upcoming_events($input);
     $meetupSection = sanitize_meetup_section($input);
     $primary = $events[0] ?? [
@@ -498,6 +520,7 @@ function sanitize_content(array $input): array
                 'title' => clip_text($kerman['title'] ?? '', 160),
                 'desc' => clip_text($kerman['desc'] ?? '', 800),
             ],
+            'team' => $team,
         ],
         'tracks' => $tracks,
     ];

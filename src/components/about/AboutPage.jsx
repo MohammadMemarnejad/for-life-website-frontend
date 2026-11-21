@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Heart, Feather, Compass, Users, MapPin, Coffee } from 'lucide-react';
+import { Sparkles, Heart, Feather, Compass, Users, MapPin, Coffee, MessageCircle } from 'lucide-react';
 import { useContent } from '../../context/ContentContext';
 
 export default function AboutPage({ onExploreMeetup }) {
@@ -81,6 +81,104 @@ export default function AboutPage({ onExploreMeetup }) {
           ))}
         </div>
       </section>
+
+      {/* Team band — olive identity strip */}
+      {aboutContent.team?.members?.length > 0 && (
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#4A622E] text-white rounded-3xl p-8 sm:p-12 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-5 pointer-events-none" />
+
+            <div className="relative z-10 space-y-8">
+              <div className="text-center space-y-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold">
+                  <Users size={13} />
+                  <span>همراهان اصلی</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold">
+                  {aboutContent.team.title}
+                </h2>
+                {aboutContent.team.subtitle && (
+                  <p className="text-xs sm:text-sm text-olive-50 font-light max-w-xl mx-auto leading-relaxed">
+                    {aboutContent.team.subtitle}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                {aboutContent.team.members.slice(0, 4).map((member) => {
+                  const initials = (member.name || '')
+                    .trim()
+                    .split(/\s+/)
+                    .slice(0, 2)
+                    .map((part) => part[0] || '')
+                    .join('');
+
+                  return (
+                    <article
+                      key={member.id || member.name}
+                      className="bg-[#FAF7F0] text-[#222D42] rounded-3xl border border-white/20 p-5 sm:p-6 shadow-sm flex flex-col gap-4"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-[#E7E3D8] bg-olive-100 flex items-center justify-center shrink-0">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name || ''}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          ) : initials ? (
+                            <span className="text-base font-bold text-olive-800">
+                              {initials}
+                            </span>
+                          ) : (
+                            <Users size={20} className="text-olive-700" />
+                          )}
+                        </div>
+                        <div className="min-w-0 space-y-1">
+                          <h3 className="text-base sm:text-lg font-bold truncate">
+                            {member.name}
+                          </h3>
+                          {member.role && (
+                            <span className="inline-flex px-2.5 py-0.5 rounded-full bg-olive-100 text-olive-800 text-[11px] font-semibold">
+                              {member.role}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {member.bio && (
+                        <div className="space-y-1">
+                          <p className="text-[11px] font-semibold text-olive-800">درباره</p>
+                          <p className="text-xs sm:text-sm text-[#5F6B7A] leading-relaxed font-light">
+                            {member.bio}
+                          </p>
+                        </div>
+                      )}
+
+                      {member.work && (
+                        <div className="space-y-1">
+                          <p className="text-[11px] font-semibold text-olive-800">کار در تیم</p>
+                          <p className="text-xs sm:text-sm text-[#5F6B7A] leading-relaxed font-light">
+                            {member.work}
+                          </p>
+                        </div>
+                      )}
+
+                      {member.contact && (
+                        <div className="mt-auto pt-3 border-t border-[#E7E3D8]/80 flex items-center gap-2 text-xs text-navy-800">
+                          <MessageCircle size={14} className="text-olive-700 shrink-0" />
+                          <span className="dir-ltr text-right break-all">{member.contact}</span>
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Kerman & Banu Hayati Story */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

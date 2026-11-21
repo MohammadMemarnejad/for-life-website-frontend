@@ -20,6 +20,7 @@ export default function MeetupSection() {
     const payload = {
       name: formData.name.trim(),
       contact: formData.contact.trim(),
+      note: '',
       event: upcomingEvent.title,
       date: upcomingEvent.date,
       timestamp: new Date().toLocaleString('fa-IR'),
@@ -35,8 +36,13 @@ export default function MeetupSection() {
     }
 
     // 2. Send to Google Sheets Apps Script Webhook if configured
-    const webhookUrl = siteConfig.googleSheetScriptUrl;
-    if (webhookUrl && webhookUrl.startsWith('http')) {
+    // Must be /macros/.../exec — not a docs.google.com spreadsheet edit link
+    const webhookUrl = siteConfig.googleSheetScriptUrl || '';
+    const isAppsScript =
+      webhookUrl.startsWith('https://script.google.com/macros/') &&
+      webhookUrl.includes('/exec');
+
+    if (isAppsScript) {
       try {
         await fetch(webhookUrl, {
           method: 'POST',
@@ -50,8 +56,8 @@ export default function MeetupSection() {
         console.error('Submission to Google Sheets error:', err);
       }
     } else {
-      // Small simulated delay for realistic feel
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      console.error('Invalid googleSheetScriptUrl; expected Apps Script /exec URL');
+      await new Promise((resolve) => setTimeout(resolve, 400));
     }
 
     setIsSubmitting(false);

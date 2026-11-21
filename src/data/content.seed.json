@@ -9,7 +9,7 @@
     "instagramUrl": "https://instagram.com/damizistan",
     "phone": "۰۹۱۳۰۰۰۰۰۰۰",
     "musicUrl": "/music.mp3",
-    "googleSheetScriptUrl": "https://docs.google.com/spreadsheets/d/1IojjcySRy7YvA1mW9WBAZU19jpKtVABhmQIxY0FFl44/edit?gid=0#gid=0",
+    "googleSheetScriptUrl": "https://script.google.com/macros/s/AKfycbw7OO3Ja5wV0lMHCHo6xDwOroqXmHBO3wvZ3jhVVaokGfDlT6M1SDz-1UrIyOn6iGDWCQ/exec",
     "heroImage": "/window-hero.png",
     "storyBadge": "داستان ما",
     "storyTitle": "مکثی کوتاه...",
@@ -559,6 +559,48 @@
     "kermanStory": {
       "title": "چرا این دورهمی راه‌اندازی شد؟",
       "desc": "«دمی برای زیستن» از یک نیاز ساده اما واقعی شکل گرفت؛ نیاز به مکث کردن در میان شتابِ روزمرگی‌ها. دلمان می‌خواست فضایی گرم و بی‌تکلف بسازیم تا شعر، هنر و گفت‌وگو را به متنِ زندگی بیاوریم. جایی که آدم‌ها فقط کنار هم ننشینند، بلکه با کلمات و شنیدنِ یکدیگر، لحظه‌ای را واقعاً زندگی و لمس کنند."
+    },
+    "team": {
+      "title": "تیم دمی برای زیستن",
+      "subtitle": "کسانی که این خلوت مشترک را کنار هم می‌سازند",
+      "members": [
+        {
+          "id": "member-1",
+          "name": "عضو تیم ۱",
+          "role": "هماهنگی و میزبانی",
+          "bio": "علاقه‌مند به ادبیات و هم‌نشینی‌های آرام.",
+          "contact": "",
+          "work": "هماهنگی جلسات، میزبانی دورهمی و پیگیری جزئیات اجرایی.",
+          "image": ""
+        },
+        {
+          "id": "member-2",
+          "name": "عضو تیم ۲",
+          "role": "شعر و محتوا",
+          "bio": "با شعر و متن‌خوانی زندگی می‌کند.",
+          "contact": "",
+          "work": "انتخاب متن‌ها، پیشنهاد شعر و طراحی تجربهٔ محتوایی هر دورهمی.",
+          "image": ""
+        },
+        {
+          "id": "member-3",
+          "name": "عضو تیم ۳",
+          "role": "طراحی فضا",
+          "bio": "به جزئیات فضا و حس حضور اهمیت می‌دهد.",
+          "contact": "",
+          "work": "چیدمان فضا، حال‌وهوای مکان و جزئیات بصری دورهمی.",
+          "image": ""
+        },
+        {
+          "id": "member-4",
+          "name": "عضو تیم ۴",
+          "role": "ارتباط با همراهان",
+          "bio": "پل ارتباطی میان جمع و همراهان تازه‌وارد.",
+          "contact": "",
+          "work": "پاسخ‌گویی، هماهنگی حضور و همراهی با مهمانان جدید.",
+          "image": ""
+        }
+      ]
     }
   },
   "tracks": []

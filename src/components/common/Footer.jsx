@@ -46,7 +46,7 @@ export default function Footer() {
             تمامی حقوق برای دورهمی ادبی و فرهنگی «{siteConfig.name}» محفوظ است.
           </div>
           <div>
-            طراحی‌شده با تمرکز بر «آهستگی» و زیستن در لحظه
+            طراحی‌شده با ❤️ توسط MRME
           </div>
         </div>
 

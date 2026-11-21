@@ -90,6 +90,14 @@ export function mergeContent(apiContent) {
       ...fallbackAbout.kermanStory,
       ...(aboutRaw.kermanStory || {}),
     },
+    team: {
+      title: aboutRaw.team?.title || fallbackAbout.team?.title || 'تیم دمی برای زیستن',
+      subtitle: aboutRaw.team?.subtitle ?? fallbackAbout.team?.subtitle ?? '',
+      members:
+        Array.isArray(aboutRaw.team?.members) && aboutRaw.team.members.length
+          ? aboutRaw.team.members
+          : fallbackAbout.team?.members || [],
+    },
   };
 
   const storySlides =

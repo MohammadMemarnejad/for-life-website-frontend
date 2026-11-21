@@ -19,6 +19,7 @@ const TABS = [
   { id: 'site', label: 'سایت' },
   { id: 'event', label: 'دورهمی‌ها' },
   { id: 'story', label: 'متن‌ها' },
+  { id: 'team', label: 'تیم' },
   { id: 'gallery', label: 'گالری' },
   { id: 'music', label: 'موزیک' },
 ];
@@ -163,13 +164,32 @@ function cloneDraft(raw) {
     features: Array.isArray(source.features) ? source.features : [],
     meetupAlbums: Array.isArray(source.meetupAlbums) ? source.meetupAlbums : [],
     aboutContent: source.aboutContent
-      ? structuredClone(source.aboutContent)
+      ? structuredClone({
+          ...source.aboutContent,
+          team: {
+            title: source.aboutContent.team?.title || 'تیم دمی برای زیستن',
+            subtitle: source.aboutContent.team?.subtitle || '',
+            members: Array.isArray(source.aboutContent.team?.members)
+              ? source.aboutContent.team.members
+              : [],
+          },
+        })
       : {
           heroTitle: '',
           heroSubtitle: '',
           philosophy: { title: '', p1: '', p2: '' },
           values: [],
           kermanStory: { title: '', desc: '' },
+          team: {
+            title: 'تیم دمی برای زیستن',
+            subtitle: '',
+            members: [
+              { id: 'member-1', name: '', role: '', bio: '', contact: '', work: '', image: '' },
+              { id: 'member-2', name: '', role: '', bio: '', contact: '', work: '', image: '' },
+              { id: 'member-3', name: '', role: '', bio: '', contact: '', work: '', image: '' },
+              { id: 'member-4', name: '', role: '', bio: '', contact: '', work: '', image: '' },
+            ],
+          },
         },
     tracks,
     storySlides: Array.isArray(source.storySlides) ? source.storySlides : [],
@@ -471,6 +491,30 @@ function EventTab({ draft, setDraft }) {
   );
 }
 
+function emptyTeamMember(index) {
+  return {
+    id: `member-${index + 1}`,
+    name: '',
+    role: '',
+    bio: '',
+    contact: '',
+    work: '',
+    image: '',
+  };
+}
+
+function normalizeTeamMembers(list) {
+  const members = Array.isArray(list) ? [...list] : [];
+  while (members.length < 4) {
+    members.push(emptyTeamMember(members.length));
+  }
+  return members.slice(0, 4).map((member, index) => ({
+    ...emptyTeamMember(index),
+    ...member,
+    id: member?.id || `member-${index + 1}`,
+  }));
+}
+
 function AboutTab({ draft, setDraft }) {
   const about = draft.aboutContent || {};
 
@@ -525,6 +569,115 @@ function AboutTab({ draft, setDraft }) {
       ))}
       <Field label="عنوان کرمان" value={about.kermanStory?.title} onChange={(v) => patchKerman('title', v)} />
       <Field label="متن کرمان" value={about.kermanStory?.desc} onChange={(v) => patchKerman('desc', v)} textarea />
+    </section>
+  );
+}
+
+function TeamTab({ draft, setDraft, token, onUploaded, onRelease }) {
+  const team = draft.aboutContent?.team || { title: '', subtitle: '', members: [] };
+  const members = normalizeTeamMembers(team.members);
+
+  const patchTeamMeta = (key, val) => {
+    setDraft((prev) => ({
+      ...prev,
+      aboutContent: {
+        ...prev.aboutContent,
+        team: {
+          title: prev.aboutContent.team?.title || 'تیم دمی برای زیستن',
+          subtitle: prev.aboutContent.team?.subtitle || '',
+          members: normalizeTeamMembers(prev.aboutContent.team?.members),
+          [key]: val,
+        },
+      },
+    }));
+  };
+
+  const patchTeamMember = (index, key, val) => {
+    setDraft((prev) => {
+      const nextMembers = normalizeTeamMembers(prev.aboutContent.team?.members);
+      nextMembers[index] = { ...nextMembers[index], [key]: val };
+      return {
+        ...prev,
+        aboutContent: {
+          ...prev.aboutContent,
+          team: {
+            title: prev.aboutContent.team?.title || 'تیم دمی برای زیستن',
+            subtitle: prev.aboutContent.team?.subtitle || '',
+            members: nextMembers,
+          },
+        },
+      };
+    });
+  };
+
+  return (
+    <section className="bg-white border border-[#E7E3D8] rounded-3xl p-5 sm:p-6 space-y-5">
+      <div className="space-y-1">
+        <h2 className="font-bold">تیم دمی برای زیستن</h2>
+        <p className="text-xs text-[#707A65]">
+          عکس و همه محتوای کارت هر عضو را اینجا ویرایش کنید؛ بعد از ذخیره در صفحه درباره ما نمایش داده می‌شود.
+        </p>
+      </div>
+
+      <Field
+        label="عنوان بخش"
+        value={team.title || ''}
+        onChange={(v) => patchTeamMeta('title', v)}
+      />
+      <Field
+        label="زیرعنوان بخش"
+        value={team.subtitle || ''}
+        onChange={(v) => patchTeamMeta('subtitle', v)}
+        textarea
+      />
+
+      {members.map((member, index) => (
+        <div
+          key={member.id}
+          className="rounded-2xl border border-[#E7E3D8] bg-[#FAF7F0]/70 p-4 sm:p-5 space-y-3"
+        >
+          <p className="text-sm font-bold text-olive-800">کارت عضو {index + 1}</p>
+          <ImageField
+            label="عکس عضو"
+            value={member.image}
+            token={token}
+            onUploaded={onUploaded}
+            onRelease={onRelease}
+            onChange={(v) => patchTeamMember(index, 'image', v)}
+          />
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Field
+              label="نام"
+              value={member.name}
+              onChange={(v) => patchTeamMember(index, 'name', v)}
+            />
+            <Field
+              label="نقش کوتاه"
+              value={member.role}
+              onChange={(v) => patchTeamMember(index, 'role', v)}
+            />
+          </div>
+          <Field
+            label="اطلاعات شخصی / درباره"
+            value={member.bio || ''}
+            onChange={(v) => patchTeamMember(index, 'bio', v)}
+            textarea
+          />
+          <Field
+            label="کاری که برای تیم می‌کند"
+            value={member.work || ''}
+            onChange={(v) => patchTeamMember(index, 'work', v)}
+            textarea
+          />
+          <Field
+            label="راه ارتباطی"
+            value={member.contact || ''}
+            onChange={(v) => patchTeamMember(index, 'contact', v)}
+            hint="مثلاً شماره تماس، ایمیل یا آیدی اینستاگرام"
+            dir="ltr"
+          />
+        </div>
+      ))}
     </section>
   );
 }
@@ -1164,6 +1317,15 @@ export default function AdminApp() {
             />
             <div className="sm:col-span-2">
               <Field
+                label="وب‌هوک گوگل شیت (Apps Script)"
+                value={draft.siteConfig.googleSheetScriptUrl || ''}
+                onChange={(v) => patchSite('googleSheetScriptUrl', v)}
+                dir="ltr"
+                hint="باید لینک /exec اسکریپت باشد، نه لینک باز کردن شیت."
+              />
+            </div>
+            <div className="sm:col-span-2">
+              <Field
                 label="آدرس موزیک پس‌زمینه"
                 value={draft.siteConfig.musicUrl}
                 onChange={(v) => patchSite('musicUrl', v)}
@@ -1207,6 +1369,15 @@ export default function AdminApp() {
 
         {tab === 'event' && <EventTab draft={draft} setDraft={setDraft} />}
         {tab === 'story' && <AboutTab draft={draft} setDraft={setDraft} />}
+        {tab === 'team' && (
+          <TeamTab
+            draft={draft}
+            setDraft={setDraft}
+            token={token}
+            onUploaded={markUploaded}
+            onRelease={releaseUpload}
+          />
+        )}
         {tab === 'gallery' && (
           <GalleryTab
             draft={draft}
