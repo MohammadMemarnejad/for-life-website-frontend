@@ -434,7 +434,7 @@ function sanitize_content(array $input): array
 
     $teamRaw = is_array($about['team'] ?? null) ? $about['team'] : [];
     $teamMembers = [];
-    foreach (array_slice(is_array($teamRaw['members'] ?? null) ? $teamRaw['members'] : [], 0, 8) as $i => $member) {
+    foreach (array_slice(is_array($teamRaw['members'] ?? null) ? $teamRaw['members'] : [], 0, 24) as $i => $member) {
         if (!is_array($member)) {
             continue;
         }

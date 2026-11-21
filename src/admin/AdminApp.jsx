@@ -183,12 +183,7 @@ function cloneDraft(raw) {
           team: {
             title: 'تیم دمی برای زیستن',
             subtitle: '',
-            members: [
-              { id: 'member-1', name: '', role: '', bio: '', contact: '', work: '', image: '' },
-              { id: 'member-2', name: '', role: '', bio: '', contact: '', work: '', image: '' },
-              { id: 'member-3', name: '', role: '', bio: '', contact: '', work: '', image: '' },
-              { id: 'member-4', name: '', role: '', bio: '', contact: '', work: '', image: '' },
-            ],
+            members: [],
           },
         },
     tracks,
@@ -491,7 +486,9 @@ function EventTab({ draft, setDraft }) {
   );
 }
 
-function emptyTeamMember(index) {
+const MAX_TEAM_MEMBERS = 24;
+
+function emptyTeamMember(index = 0) {
   return {
     id: `member-${index + 1}`,
     name: '',
@@ -504,11 +501,8 @@ function emptyTeamMember(index) {
 }
 
 function normalizeTeamMembers(list) {
-  const members = Array.isArray(list) ? [...list] : [];
-  while (members.length < 4) {
-    members.push(emptyTeamMember(members.length));
-  }
-  return members.slice(0, 4).map((member, index) => ({
+  const members = Array.isArray(list) ? list : [];
+  return members.slice(0, MAX_TEAM_MEMBERS).map((member, index) => ({
     ...emptyTeamMember(index),
     ...member,
     id: member?.id || `member-${index + 1}`,
@@ -577,17 +571,20 @@ function TeamTab({ draft, setDraft, token, onUploaded, onRelease }) {
   const team = draft.aboutContent?.team || { title: '', subtitle: '', members: [] };
   const members = normalizeTeamMembers(team.members);
 
+  const buildTeam = (prev, membersList, patch = {}) => ({
+    title: patch.title ?? prev.aboutContent.team?.title ?? 'تیم دمی برای زیستن',
+    subtitle: patch.subtitle ?? prev.aboutContent.team?.subtitle ?? '',
+    members: membersList,
+  });
+
   const patchTeamMeta = (key, val) => {
     setDraft((prev) => ({
       ...prev,
       aboutContent: {
         ...prev.aboutContent,
-        team: {
-          title: prev.aboutContent.team?.title || 'تیم دمی برای زیستن',
-          subtitle: prev.aboutContent.team?.subtitle || '',
-          members: normalizeTeamMembers(prev.aboutContent.team?.members),
+        team: buildTeam(prev, normalizeTeamMembers(prev.aboutContent.team?.members), {
           [key]: val,
-        },
+        }),
       },
     }));
   };
@@ -600,11 +597,45 @@ function TeamTab({ draft, setDraft, token, onUploaded, onRelease }) {
         ...prev,
         aboutContent: {
           ...prev.aboutContent,
-          team: {
-            title: prev.aboutContent.team?.title || 'تیم دمی برای زیستن',
-            subtitle: prev.aboutContent.team?.subtitle || '',
-            members: nextMembers,
-          },
+          team: buildTeam(prev, nextMembers),
+        },
+      };
+    });
+  };
+
+  const addTeamMember = () => {
+    setDraft((prev) => {
+      const current = normalizeTeamMembers(prev.aboutContent.team?.members);
+      if (current.length >= MAX_TEAM_MEMBERS) return prev;
+      return {
+        ...prev,
+        aboutContent: {
+          ...prev.aboutContent,
+          team: buildTeam(prev, [
+            ...current,
+            {
+              ...emptyTeamMember(current.length),
+              id: newId('member'),
+            },
+          ]),
+        },
+      };
+    });
+  };
+
+  const removeTeamMember = (index) => {
+    setDraft((prev) => {
+      const current = normalizeTeamMembers(prev.aboutContent.team?.members);
+      const removed = current[index];
+      if (removed?.image) onRelease?.(removed.image);
+      return {
+        ...prev,
+        aboutContent: {
+          ...prev.aboutContent,
+          team: buildTeam(
+            prev,
+            current.filter((_, i) => i !== index)
+          ),
         },
       };
     });
@@ -612,11 +643,22 @@ function TeamTab({ draft, setDraft, token, onUploaded, onRelease }) {
 
   return (
     <section className="bg-white border border-[#E7E3D8] rounded-3xl p-5 sm:p-6 space-y-5">
-      <div className="space-y-1">
-        <h2 className="font-bold">تیم دمی برای زیستن</h2>
-        <p className="text-xs text-[#707A65]">
-          عکس و همه محتوای کارت هر عضو را اینجا ویرایش کنید؛ بعد از ذخیره در صفحه درباره ما نمایش داده می‌شود.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+        <div className="space-y-1">
+          <h2 className="font-bold">تیم دمی برای زیستن</h2>
+          <p className="text-xs text-[#707A65]">
+            عضو جدید اضافه کنید و عکس و محتوای هر کارت را ویرایش کنید؛ بعد از ذخیره در صفحه درباره ما نمایش داده می‌شود.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={addTeamMember}
+          disabled={members.length >= MAX_TEAM_MEMBERS}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-olive-700 text-white text-sm font-semibold hover:bg-olive-800 disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+        >
+          <Plus size={15} />
+          افزودن عضو
+        </button>
       </div>
 
       <Field
@@ -631,12 +673,28 @@ function TeamTab({ draft, setDraft, token, onUploaded, onRelease }) {
         textarea
       />
 
+      {members.length === 0 && (
+        <p className="text-sm text-[#707A65] bg-[#FAF7F0] border border-dashed border-[#E7E3D8] rounded-2xl px-4 py-6 text-center">
+          هنوز عضوی ثبت نشده. با دکمه «افزودن عضو» شروع کنید.
+        </p>
+      )}
+
       {members.map((member, index) => (
         <div
           key={member.id}
           className="rounded-2xl border border-[#E7E3D8] bg-[#FAF7F0]/70 p-4 sm:p-5 space-y-3"
         >
-          <p className="text-sm font-bold text-olive-800">کارت عضو {index + 1}</p>
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-sm font-bold text-olive-800">کارت عضو {index + 1}</p>
+            <button
+              type="button"
+              onClick={() => removeTeamMember(index)}
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-red-700 bg-red-50 border border-red-200 hover:bg-red-100"
+            >
+              <Trash2 size={13} />
+              حذف
+            </button>
+          </div>
           <ImageField
             label="عکس عضو"
             value={member.image}

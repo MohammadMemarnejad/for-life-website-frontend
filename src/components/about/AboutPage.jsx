@@ -105,7 +105,7 @@ export default function AboutPage({ onExploreMeetup }) {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                {aboutContent.team.members.slice(0, 4).map((member) => {
+                {aboutContent.team.members.map((member) => {
                   const initials = (member.name || '')
                     .trim()
                     .split(/\s+/)
